@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <title>메인 페이지</title>
+    <link rel="stylesheet" href="static/css/index.css">
+    <link rel="stylesheet" href="static/css/index-A.css">
+    <script src="static/js/index.js"></script>
+</head>
+<body>
+
+<div class="titleClass">
+    <h1 id="title">게시판</h1>
+
+    {% if admin_message %}
+    <h2 id="adminTitle">{{admin_message}}</h2>
+    {% endif %}
+
+</div>
+
+<a href="/write" class="MakeTextClass">
+    <button id="MakeText">글 작성</button>
+</a>
+
+<ul>
+    {% for post in posts %}
+    <li><a href="/post/{{ post.id }}" id="text">{{ post.title }}</a></li>
+    {% endfor %}
+</ul>
+
+<button id="BackgroundMode">다크 모드로 변경</button>
+
+</body>
+</html>
